@@ -1,6 +1,6 @@
 # First Java App. POEI HARDIS 
-##Gestion d’une cave à vins participative
-###Domaine fonctionnel : Gestion d’une cave à vins participative
+ ## Gestion d’une cave à vins participative
+ ### Domaine fonctionnel : Gestion d’une cave à vins participative
 
 
 *Application web* 
