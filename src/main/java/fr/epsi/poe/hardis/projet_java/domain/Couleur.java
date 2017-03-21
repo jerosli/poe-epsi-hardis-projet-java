@@ -7,5 +7,5 @@ package fr.epsi.poe.hardis.projet_java.domain;
 public enum Couleur {
     ROUGE,
     ROSÉ,
-    BLANC;
+    BLANC
 }
