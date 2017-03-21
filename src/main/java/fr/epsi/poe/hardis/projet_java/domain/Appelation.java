@@ -2,6 +2,7 @@ package fr.epsi.poe.hardis.projet_java.domain;
 
 import javax.persistence.Entity;
 import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 
 
@@ -9,15 +10,15 @@ import javax.persistence.*;
  * Created by medda on 21/03/2017.
  */
 @Entity
-public class Appelation extends AbstractEntity{
+public class Appelation extends AbstractEntity {
     @NotNull
     @Column(length=40)
     private String nom;
-    //private Region region;
+    private Region region;
 
-    public Appelation(String nom/*, Region region*/) {
+    public Appelation(String nom, Region region) {
         this.nom = nom;
-        //this.region = region;
+        this.region = region;
     }
 
     public String getNom() {
@@ -28,13 +29,13 @@ public class Appelation extends AbstractEntity{
         this.nom = nom;
     }
 
-   /* public Region getRegion() {
+   public Region getRegion() {
         return region;
     }
 
     public void setRegion(Region region) {
         this.region = region;
-    }*/
+    }
 }
 
 
