@@ -13,11 +13,11 @@ public class Appellation extends AbstractEntity{
     @NotNull
     @Column(length=40)
     private String nom;
-    //private Region region;
+    private Region region;
 
-    public Appellation(String nom/*, Region region*/) {
+    public Appellation(String nom, Region region) {
         this.nom = nom;
-        //this.region = region;
+        this.region = region;
     }
 
     public String getNom() {
@@ -28,13 +28,13 @@ public class Appellation extends AbstractEntity{
         this.nom = nom;
     }
 
-   /* public Region getRegion() {
+   public Region getRegion() {
         return region;
     }
 
     public void setRegion(Region region) {
         this.region = region;
-    }*/
+    }
 }
 
 
