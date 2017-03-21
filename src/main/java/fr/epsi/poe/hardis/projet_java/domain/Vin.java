@@ -7,6 +7,8 @@ package fr.epsi.poe.hardis.projet_java.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import java.util.Set;
 
 @Entity
@@ -21,11 +23,11 @@ public class Vin extends AbstractEntity{
     private String producteur;
     @Column
     private String cru;
-    @Column
+    @ManyToOne
     private Appellation appellation;
     @Column
     private int millésime;
-    @Column
+    @ManyToMany
     private Set<Cepage> cépage;
 
     // CONSTRUCTEURS
