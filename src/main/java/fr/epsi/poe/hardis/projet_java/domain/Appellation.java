@@ -13,6 +13,8 @@ public class Appellation extends AbstractEntity{
     @NotNull
     @Column(length=40)
     private String nom;
+    @ManyToOne
+    @JoinColumn(name="ID")
     private Region region;
 
     public Appellation(String nom, Region region) {
