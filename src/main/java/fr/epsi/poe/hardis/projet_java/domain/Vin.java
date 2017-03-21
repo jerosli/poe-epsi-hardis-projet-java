@@ -25,7 +25,7 @@ public class Vin extends AbstractEntity{
     private Appellation appellation;
     @Column
     private int millésime;
-    @ManyToMany
+    @ElementCollection
     private Set<Cepage> cépage;
 
     // CONSTRUCTEURS
