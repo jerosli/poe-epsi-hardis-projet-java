@@ -2,13 +2,11 @@ package fr.epsi.poe.hardis.projet_java.domain;
 
 /**
  * Projet : cave_a_vins
- * Créé par jerome le 21/03/17.
+ * @author jerome
+ * @created_on 21/03/17
  */
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -17,7 +15,7 @@ public class Vin extends AbstractEntity{
     // CHAMPS
     @Column
     private String complementNom;
-    @Column
+    @Enumerated(EnumType.STRING)
     private Couleur couleur;
     @Column
     private String producteur;
