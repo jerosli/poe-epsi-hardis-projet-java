@@ -1,7 +1,6 @@
 package fr.epsi.poe.hardis.projet_java.domain;
 
 import javax.persistence.Entity;
-import com.sun.istack.internal.NotNull;
 import javax.persistence.*;
 
 
@@ -10,8 +9,8 @@ import javax.persistence.*;
  */
 @Entity
 public class Appellation extends AbstractEntity{
-    @NotNull
-    @Column(length=40)
+
+    @Column(length=40,nullable = false)
     private String nom;
     @ManyToOne
     private Region region;
