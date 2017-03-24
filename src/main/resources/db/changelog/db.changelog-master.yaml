@@ -1,110 +1,194 @@
 databaseChangeLog:
-  - changeset:
-      id: 1
-      author: init
-      databaseChangeLog:
-        - preConditions:
-          - runningAs:
-              username: groupe POE
-
-  - changeSet:
-      id: 2
-      author: OFT IBI
-            changes:
-              - createTable:
-                  tableName: region
-                  columns:
-                    - column:
-                        name: id
-                        type: long
-                        autoIncrement: true
-                        constraints:
-                          primaryKey: true
-                          nullable: false
-                    - column:
-                        name: nom
-                        type: varchar(255)
-  - changeSet:
-      id: 3
-            author: OFT IBI
-            changes:
-            - column:
-
-              - addColumn:
-                  tableName: appellation
-                  columns:
-                  name: id
-                   type: long
-                   autoIncrement: true
-                   constraints:
-                   primaryKey: true
-                   nullable: false
-                    - column:
-                        name: nom
-                        type: varchar(40)
-                    - column :
-                      name: regionId
-                      type: long
-  - changeSet:
-      id: 4
-               author: OFT IBI
-               changes:
-               - column:
-
-                 - addColumn:
-                     tableName: cepage
-                     columns:
-                     name: id
-                      type: long
-                      autoIncrement: true
-                      constraints:
-                      primaryKey: true
-                      nullable: false
-                       - column:
-                           name: nom
-                           type: varchar(255)
-
-  - changeSet:
-      id: 5
-               author: OFT IBI
-               changes:
-               - column:
-
-                 - addColumn:
-                     tableName:  vin
-                     columns:
-                     name: id
-                      type: long
-                      autoIncrement: true
-                      constraints:
-                      primaryKey: true
-                      nullable: false
-                       - column:
-                           name: complementNom
-                           type: varchar(255)
-                       - column:
-                            name: couleur
-                            type: varchar(255)
-                         - column:
-                             name: producteur
-                              type: varchar(255)
-
-                        - column:
-                             name: cru
-                              type: varchar(255)
-                        - column:
-                              name: appellationId
-                              type: long
-                        - column:
-                            name: millesime
-                            type: int
-  - changeSet:
-      id: 6
-            author: OFT IBI
-            changes:
-              - addLookupTable:
-                  existingTableName: person
-                  existingColumnName:state
-                  newTableName: state
-                  newColumnName: id
-                  newColumnDataType: char(2)
+- changeSet:
+    id: 1490345090854-1
+    author: jerome (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: nom
+            type: VARCHAR(40)
+        - column:
+            name: region_id
+            type: BIGINT
+        tableName: appellation
+- changeSet:
+    id: 1490345090854-2
+    author: jerome (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: nom
+            type: VARCHAR(40)
+        tableName: cepage
+- changeSet:
+    id: 1490345090854-3
+    author: jerome (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: nom
+            type: VARCHAR(40)
+        tableName: region
+- changeSet:
+    id: 1490345090854-4
+    author: jerome (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: complement_nom
+            type: VARCHAR(255)
+        - column:
+            name: couleur
+            type: VARCHAR(255)
+        - column:
+            name: cru
+            type: VARCHAR(255)
+        - column:
+            name: millésime
+            type: INT
+        - column:
+            name: producteur
+            type: VARCHAR(255)
+        - column:
+            name: appellation_id
+            type: BIGINT
+        tableName: vin
+- changeSet:
+    id: 1490345090854-5
+    author: jerome (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: vin_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: cépage_id
+            type: BIGINT
+        tableName: vin_cépage
+- changeSet:
+    id: 1490345090854-6
+    author: jerome (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: vin_id, cépage_id
+        constraintName: PRIMARY
+        tableName: vin_cépage
+- changeSet:
+    id: 1490345090854-7
+    author: jerome (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: cépage_id
+        constraintName: UK_3dw469ubq0my1rt4yni43pie1
+        tableName: vin_cépage
+- changeSet:
+    id: 1490345090854-8
+    author: jerome (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: region_id
+        indexName: FKl0wwwyjgbovwalj6a2t57941r
+        tableName: appellation
+- changeSet:
+    id: 1490345090854-9
+    author: jerome (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: appellation_id
+        indexName: FKl80owq2dw35jg4xkf5krobq1h
+        tableName: vin
+- changeSet:
+    id: 1490345090854-10
+    author: jerome (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: cépage_id
+        baseTableName: vin_cépage
+        constraintName: FK8ko9rbsab1k8bw28yhnlcb832
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: cepage
+- changeSet:
+    id: 1490345090854-11
+    author: jerome (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: vin_id
+        baseTableName: vin_cépage
+        constraintName: FKfgeho37er7iu5fi4i9974b8ru
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: vin
+- changeSet:
+    id: 1490345090854-12
+    author: jerome (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: region_id
+        baseTableName: appellation
+        constraintName: FKl0wwwyjgbovwalj6a2t57941r
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: region
+- changeSet:
+    id: 1490345090854-13
+    author: jerome (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: appellation_id
+        baseTableName: vin
+        constraintName: FKl80owq2dw35jg4xkf5krobq1h
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: appellation
