@@ -1,4 +1,4 @@
-git sdatabaseChangeLog:
+databaseChangeLog:
   - changeset:
       id: 1
       author: init
@@ -7,9 +7,9 @@ git sdatabaseChangeLog:
           - runningAs:
               username: groupe POE
 
-        - changeSet:
-            id: 1
-            author: OFT IBI
+  - changeSet:
+      id: 2
+      author: OFT IBI
             changes:
               - createTable:
                   tableName: region
@@ -24,10 +24,8 @@ git sdatabaseChangeLog:
                     - column:
                         name: nom
                         type: varchar(255)
-
-
-        - changeSet:
-            id: 2
+  - changeSet:
+      id: 3
             author: OFT IBI
             changes:
             - column:
@@ -47,8 +45,8 @@ git sdatabaseChangeLog:
                     - column :
                       name: regionId
                       type: long
-   - changeSet: 3
-               id:
+  - changeSet:
+      id: 4
                author: OFT IBI
                changes:
                - column:
@@ -66,8 +64,8 @@ git sdatabaseChangeLog:
                            name: nom
                            type: varchar(255)
 
-- changeSet: 4
-               id:
+  - changeSet:
+      id: 5
                author: OFT IBI
                changes:
                - column:
@@ -100,8 +98,8 @@ git sdatabaseChangeLog:
                         - column:
                             name: millesime
                             type: int
-        - changeSet:
-            id: 3
+  - changeSet:
+      id: 6
             author: OFT IBI
             changes:
               - addLookupTable:
