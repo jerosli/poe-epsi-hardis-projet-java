@@ -192,3 +192,15 @@ databaseChangeLog:
         onUpdate: NO ACTION
         referencedColumnNames: id
         referencedTableName: appellation
+
+- changeSet:
+    id: addNotNullConstraint-jerome-20170329
+    author: jerome
+    changes:
+    - sql:
+        dbms: mysql
+        endDelimiter: ;
+        splitStatements: true
+        sql: ALTER TABLE vin CHANGE appellation_id appellation_id BIGINT(20) NOT NULL;
+        stripComments: true
+

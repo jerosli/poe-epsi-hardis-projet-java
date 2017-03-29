@@ -21,7 +21,7 @@ public class Vin extends AbstractEntity{
     private String producteur;
     @Column
     private String cru;
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Appellation appellation;
     @Column
     private int millésime;
