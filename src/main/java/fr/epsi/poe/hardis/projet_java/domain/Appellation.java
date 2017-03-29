@@ -19,6 +19,7 @@ public class Appellation extends AbstractEntity{
         this.nom = nom;
         this.region = region;
     }
+    public Appellation (){}
 
     public String getNom() {
         return nom;

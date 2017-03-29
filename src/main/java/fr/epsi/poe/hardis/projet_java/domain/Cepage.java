@@ -16,7 +16,7 @@ public class Cepage extends AbstractEntity {
         this.id = id;
         this.nom = nom;
     }
-
+   public Cepage (){}
    public String getNom() {
         return nom;
     }

@@ -25,10 +25,15 @@ public class AbstractEntity {
         return id;
     }
 
+   /* public AbstractEntity() {
+    }*/
+
+
+
     /*
-     * (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
+             * (non-Javadoc)
+             * @see java.lang.Object#equals(java.lang.Object)
+             */
     @Override
     public boolean equals(Object obj) {
 

@@ -38,6 +38,7 @@ public class Vin extends AbstractEntity{
         this.cru = cru;
         this.millésime = millésime;
     }
+    public Vin (){}
 
     // ACCESSEURS ET MUTATEURS
 
